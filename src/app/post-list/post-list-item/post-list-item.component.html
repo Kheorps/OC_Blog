@@ -1,0 +1,18 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': post.loveIts > 0,
+                'list-group-item-danger': post.loveIts < 0}"
+    style="margin-top: 2px;margin-bottom: 2px;">
+  <p class="date">{{ post.date | date : 'short' }}</p>
+  <h4 [ngStyle]="{ color: getColor() }">{{ post.title }}</h4>
+  <p [ngStyle]="{ color: getColor() }">{{ post.content }}</p>
+  <button class="btn btn-success"
+          (click)="onLoveIt(post)">I like it</button>
+  &nbsp;
+  <button class="btn btn-danger"
+          (click)="onDislikeIt(post)">I don't like it</button>
+
+  <button class="btn btn-danger pull-right"
+          style="float:right;"
+          *ngIf="isAuth"          
+          (click)="onDeletePost(post)">Supprimer post</button>
+</li>

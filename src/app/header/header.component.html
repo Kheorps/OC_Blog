@@ -1,0 +1,26 @@
+<div>
+  <ul>
+    <li routerLinkActive="active">
+      <a class="navbar-brand" routerLink="posts">Posts</a>
+    </li>
+    <li routerLinkActive="active">
+      <a class="navbar-brand" routerLink="posts/new"
+          *ngIf="isAuth">Ajouter un post</a>
+    </li>
+    <li style="float:right;" routerLinkActive="active" *ngIf="!isAuth">
+      <a class="navbar-brand" routerLink="auth/signup">
+        <span class="oi oi-person">&nbsp;Créer un compte</span>
+      </a>
+    </li>
+    <li style="float:right;" routerLinkActive="active" *ngIf="!isAuth">
+      <a class="navbar-brand" routerLink="auth/signin">
+        <span class="oi oi-account-login">&nbsp;Connexion</span>
+      </a>
+    </li>
+    <li style="float:right;" *ngIf="isAuth">
+      <a class="navbar-brand" routerLink="" (click)="onSignOut()">
+          <span class="oi oi-account-logout">&nbsp;Déconnexion</span>
+      </a>
+    </li>
+  </ul>
+</div>
